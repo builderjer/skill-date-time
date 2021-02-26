@@ -6,30 +6,34 @@ import QtQuick.Window 2.3
 import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate {
+
+    FontLoader { id: ziggyfont; source: "fonts/Ziggy.ttf" }
+
     id: timeRoot
-    
+
     leftPadding: 0
     rightPadding: 0
     bottomPadding: 0
     topPadding: 0
-    
+
     property bool horizontalMode: timeRoot.width > timeRoot.height ? 1 : 0
     property var horizontalFontWidth: horizontalMode ? rectGrid.implicitWidth / 2 - colons.implicitWidth : rectGrid.implicitWidth / 2
     property var hourText: sessionData.time_string.split(":")[0]
     property var minuteText: sessionData.time_string.split(":")[1]
-    
+
     onHourTextChanged: {
         hour.text = hourText
     }
-    
+
     onMinuteTextChanged: {
         minute.text = minuteText
     }
-    
+
     Item {
+
         anchors.fill: parent
         anchors.margins: horizontalMode ? timeRoot.height * 0.30 : timeRoot.height * 0.15
-        
+
         Rectangle {
             id: rectGrid
             implicitWidth: parent.width
@@ -52,14 +56,11 @@ Mycroft.Delegate {
                         id: hour
                         width: parent.width
                         height: parent.height
-                        font.capitalization: Font.AllUppercase
-                        font.family: "Noto Sans"
-                        font.bold: true
-                        font.weight: Font.Bold
+                        font.family: ziggyfont.name
                         font.pixelSize: horizontalMode ? timeRoot.horizontalFontWidth : parent.height
                         horizontalAlignment: horizontalMode ? Text.AlignRight : Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        color: "white"
+                        color: "#00e6e6"
                         renderType: height > 40 ? Text.QtRendering : (Screen.devicePixelRatio % 1 !== 0 ? Text.QtRendering : Text.NativeRendering)
 
                         Component.onCompleted: {
@@ -93,14 +94,11 @@ Mycroft.Delegate {
                         id: minute
                         width: parent.width
                         height: parent.height
-                        font.capitalization: Font.AllUppercase
-                        font.family: "Noto Sans"
-                        font.bold: true
-                        font.weight: Font.Bold
+                        font.family: ziggyfont.name
                         font.pixelSize: horizontalMode ? timeRoot.horizontalFontWidth : parent.height
                         horizontalAlignment: horizontalMode ? Text.AlignLeft : Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        color: "#22A7F0"
+                        color: "#00e6e6"
                         renderType: height > 40 ? Text.QtRendering : (Screen.devicePixelRatio % 1 !== 0 ? Text.QtRendering : Text.NativeRendering)
 
                         Component.onCompleted: {
