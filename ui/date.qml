@@ -7,7 +7,7 @@ import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate {
 
-    FontLoader { id: ziggyfont; source: "fonts/Komika_Hand.ttf" }
+    FontLoader { id: ziggyfont; source: "fonts/Ziggy.ttf" }
 
     ColumnLayout {
         id: grid

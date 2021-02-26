@@ -6,8 +6,9 @@ import org.kde.kirigami 2.4 as Kirigami
 import Mycroft 1.0 as Mycroft
 
 Mycroft.Delegate {
+    id: delegate
 
-    FontLoader { id: ziggyfont; source: "fonts/Ziggy.ttf" }
+    FontLoader { id: ziggyfont; source: "fonts/Komika_Hand.ttf" }
 
     background: Image {
         source: Qt.resolvedUrl("img/idle.png")
